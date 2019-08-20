@@ -10,7 +10,7 @@
 
     <meta name="twitter:card" value="summary_large_image">
     <meta name="twitter:site" content="{{ .Site.Params.meta.twitterSite }}">
-    {{- if eq .URL "/" }}
+    {{- if eq .RelPermalink "/" }}
     <meta name="twitter:title" content="{{ .Site.Params.course.number }}: {{ .Site.Title }}">
     {{- else }}
     <meta name="twitter:title" content="{{ .Title }} | {{ .Site.Params.course.number }}: {{ .Site.Title }}">
@@ -28,7 +28,7 @@
     {{- end }}
 
     <meta property="og:site_name" content="{{ .Site.Params.course.number }}: {{ .Site.Title }}"/>
-    {{- if eq .URL "/" }}
+    {{- if eq .RelPermalink "/" }}
     <meta property="og:title" content="{{ .Site.Params.course.number }}: {{ .Site.Title }}">
     {{- else }}
     <meta property="og:title" content="{{ .Title }} | {{ .Site.Params.course.number }}: {{ .Site.Title }}">
@@ -47,4 +47,4 @@
     <meta property="og:description" content="{{ .Site.Params.description }}" />
     {{- end }}
 
-    {{ .Hugo.Generator }}    
+    {{ hugo.Generator }}    
