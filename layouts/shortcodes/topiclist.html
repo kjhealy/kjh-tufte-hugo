@@ -2,12 +2,19 @@
     <tbody>
 
     {{- range .Site.Data.lessons }}
-        {{- range . }}
-        <tr>
-            <td align="right" style="width:20%;text-align:left">{{ .date }}</td>
-            <td style="width:50%;text-align:left">{{ .title | markdownify }}</td>
-        </tr>
-        {{- end }}
+       {{- range . }}
+          {{- if .header }}
+            <tr>
+             <td align="right" style="width:20%;text-align:left;font-weight:bold;">{{ .date }}</td>
+             <td style="width:50%;text-align:left;font-weight:bold;">{{ .title | markdownify }}</td>
+            </tr>
+          {{- else }}
+            <tr>
+             <td align="right" style="width:20%;text-align:left">{{ .date }}</td>
+             <td style="width:50%;text-align:left">{{ .title | markdownify }}</td>
+            </tr>
+            {{- end }}
+        {{- end }}     
     {{- end }}
 
     </tbody>
